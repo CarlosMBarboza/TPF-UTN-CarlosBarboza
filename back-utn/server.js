@@ -25,6 +25,13 @@ app.use(cors());
 app.use('/', router());
 app.use(express.static('img'));
 
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(err.status || 500).json({
+    mensaje: err.message || 'Error interno del servidor',
+  });
+});
+
 
 
 app.listen(3000, () => {

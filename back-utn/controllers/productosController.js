@@ -149,3 +149,15 @@ exports.eliminarProducto = async (req, res, next) => {
     next(error);
   }
 };
+
+exports.buscarProducto = async (req, res, next) => {
+  try{
+    const { query } = req.params;
+    const producto = await Producto.find({ nombre: { $regex: query, $options: 'i' } });
+    res.json(producto);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ mensaje: 'Hubo un error al buscar el producto' });
+    next(error);
+  }
+}

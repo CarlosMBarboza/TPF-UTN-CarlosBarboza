@@ -30,13 +30,17 @@ module.exports = function () {
   router.get('/productos/:idProducto', productosController.mostrarUnProducto);
   router.put('/productos/:idProducto', productosController.subirArchivo, productosController.actualizarProducto);
   router.delete('/productos/:idProducto', productosController.eliminarProducto);
+  router.post('/productos/busqueda/:query', productosController.buscarProducto);
 
   // Pedidos
-  router.post('/pedidos', pedidosController.nuevoPedido);
+  // Cambiar la ruta para incluir el ID del cliente
+router.post('/pedidos/:idCliente', pedidosController.nuevoPedido);
+
   router.get('/pedidos', pedidosController.mostrarPedidos);
   router.get('/pedidos/:idPedido', pedidosController.mostrarUnPedido);
   router.put('/pedidos/:idPedido', pedidosController.actualizarPedido);
-  router.delete('/pedidos/:idPedido', pedidosController.eliminarPedido);
+  router.delete('/pedidos/:idPedido',pedidosController.eliminarPedido);
+
 
   return router;
 };

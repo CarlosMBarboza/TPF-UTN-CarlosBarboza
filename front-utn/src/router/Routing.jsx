@@ -2,7 +2,6 @@ import { Routes, Route } from "react-router-dom";
 import Clientes from "../components/clientes/Clientes";
 import NuevoCliente from "../components/clientes/NuevoCliente";
 import EditarCliente from "../components/clientes/EditarCliente";
-import Pedidos from "../components/pedidos/Pedidos";
 import Productos from "../components/productos/Productos";
 import EditarProducto from "../components/productos/EditarProducto";
 import NuevoProducto from "../components/productos/NuevoProducto";
@@ -10,6 +9,8 @@ import Login from "../pages/login/Login";
 import Register from "../pages/register/Register";
 import RegisterCreado from "../pages/register/RegisterCreado";
 import OlvidePassword from "../pages/password/OlvidePassword";
+import Pedidos from "../components/pedidos/Pedidos";
+import NuevoPedido from "../components/pedidos/NuevoPedido";
 
 
 const Routing = () => {
@@ -31,6 +32,7 @@ const Routing = () => {
         <Route path="/productos/editar/:id" element={<EditarProducto />} />
         
         <Route path="/pedidos" element={<Pedidos />} />
+        <Route path="/pedidos/nuevo/:id" element={<NuevoPedido />} />
       </Routes>
     </>
   )

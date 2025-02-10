@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const clienteAxios  = axios.create({
-  baseURL: "http://localhost:3000",
+  baseURL: "https://utn-back.netlify.app/",
 });
 
 export default clienteAxios
